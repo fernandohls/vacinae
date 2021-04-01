@@ -1,5 +1,3 @@
-https://api.vacinae.adft.com/fabricantes/231321321-1321321-2313
-
 - Fabricante
 	- ID
 	- Nome

@@ -1,6 +1,7 @@
 package com.adft.vacinae.api.repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.adft.vacinae.api.entity.BaseEntity;
@@ -8,10 +9,9 @@ import com.adft.vacinae.api.entity.BaseEntity;
 public interface BaseRepository<E extends BaseEntity> {
 
 	// CRUD = CREATE, READ, UPDATE, DELETE
+	public E criar(E entity);
 	
-	public void criar(E entity);
-	
-	public E ler(UUID id);
+	public Optional<E> ler(UUID id);
 	
 	public List<E> lerTudo();
 	

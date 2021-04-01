@@ -3,6 +3,7 @@ package com.adft.vacinae.api.controller;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +18,11 @@ public interface BaseController<D extends BaseDto, E extends BaseEntity> {
 
 	// POST - PUBLICAR/CRIAR
 	@PostMapping
-	public void criar(@RequestBody D dto);
+	public ResponseEntity<E> criar(@RequestBody D dto);
 
 	// GET - OBTER/PEGAR/LER
 	@GetMapping("/{id}")
-	public E ler(@PathVariable UUID id);
+	public ResponseEntity<E> ler(@PathVariable UUID id);
 
 	// GET - OBTER/PEGAR/LER
 	@GetMapping
@@ -29,10 +30,10 @@ public interface BaseController<D extends BaseDto, E extends BaseEntity> {
 
 	// PUT - ATUALIZAR
 	@PutMapping("/{id}")
-	public void atualizar(@PathVariable UUID id, @RequestBody D dto);
+	public ResponseEntity<Void> atualizar(@PathVariable UUID id, @RequestBody D dto);
 
 	// DELETE - DELETAR
 	@DeleteMapping("/{id}")
-	public void deletar(@PathVariable UUID id);
+	public ResponseEntity<Void> deletar(@PathVariable UUID id);
 
 }
